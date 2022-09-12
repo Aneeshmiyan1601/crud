@@ -9,15 +9,30 @@ if (isset($_POST['update'])) {
     $employee_number = $_POST['employee_number'];
     $employee_id = $_POST['employee_id'];
 
+//     $select = mysqli_query($conn, "SELECT * FROM employee WHERE employee_name = '".$_POST['employee_name']."'");
+// if(mysqli_num_rows($select)) {
+//   // header('Location: index.php');
+//   exit('This username already exists');
+// }else{
+
 
     $sql = "UPDATE `employee` SET `employee_name`='$employee_name',`employee_email`='$employee_email',`employee_number`='$employee_number',`employee_id`='$employee_id' WHERE `id`= '$user_id'";
-    $result = $conn->query($sql); 
+    $sql1 = "UPDATE `employee_demo` SET `employee_name`='$employee_name',`employee_email`='$employee_email',`employee_number`='$employee_number',`employee_id`='$employee_id' WHERE `id`= '$user_id'";
+    $result = $conn->query($sql);
+    $result1 = $conn->query($sql1); 
 
         if ($result == TRUE) {
 
             // echo "Record updated successfully.";
-            header('Location: index.php');
+            // header('Location: index.php');
 
+        }if($result1 == $result){
+          // echo "Record updated successfully.";
+          // header('Location: index.php');
+
+          echo '<script>alert("Record Update Successfully")</script>';
+          echo '<script>window.location.href = "index.php"; </script>';
+        
         }else{
 
             echo "Error:" . $sql . "<br>" . $conn->error;
@@ -25,13 +40,14 @@ if (isset($_POST['update'])) {
         }
 
     } 
+  // }
 
 
     if (isset($_GET['id'])) {
 
         $user_id = $_GET['id']; 
     
-        $sql = "SELECT * FROM `employee` WHERE `id`='$user_id'";
+        $sql = "SELECT * FROM `employee_demo` WHERE `id`='$user_id'";
     
         $result = $conn->query($sql); 
     
@@ -51,7 +67,22 @@ if (isset($_POST['update'])) {
     }
       
 
+
 ?>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
