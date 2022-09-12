@@ -2,7 +2,7 @@
 
 include "db.php";
 
-$sql = "SELECT * FROM employee";
+$sql = "SELECT * FROM employee_demo";
 
 $result = $conn->query($sql);
 
@@ -17,6 +17,9 @@ $result = $conn->query($sql);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Employee Details</title>
+
+
+
 </head>
 
 <body>
@@ -27,7 +30,7 @@ $result = $conn->query($sql);
     <form action="employee_user.php" method="post">
       <div class="input-group">
         <label>Name :</label>
-        <input type="text" maxlength="30" name="employee_name" placeholder="please Enter Your Name" pattern="[A-Za-z]{1,30}"  required />
+        <input type="text"  name="employee_name" placeholder="please Enter Your Name" pattern="[A-Za-z]{1,30}" title="Dont use Number! Use Name eg:jhon" required />
       </div>
       <div class="input-group">
         <label>Email :</label>
@@ -47,78 +50,28 @@ $result = $conn->query($sql);
       </div>
     </form>
 
+
+    <!-- search bar starts -->
+
+            <div class="search">
+              <form method="POST" action="">
+                <div class="form-inline">
+                    <input type="text" class="form-control" name="keyword" placeholder="Search here..." >
+                    <button class="edit_btn" name="search">Search</button>&nbsp;
+          
+                    <a class="edit_btn" href="export.php">Export</a>                    
+                </div>
+              </form>
+               <br />
+               <?php include 'search_query.php'?>        
+             </div>
+
+
+
     <!-- view side -->
 
 
-          <center><h2>Employee Details</h2></center>
-          <div class="table-wrapper">
-          <table class="fl-table">
-
-          <thead>
-
-            <tr>
-
-              <th>SI.NO</th>
-
-              <th>Employee Name</th>
-
-              <th>Employee Email</th>
-
-              <th>Employee PhoneNumber</th>
-
-              <th>Employee ID</th>
-
-              <th>Action</th>
-
-            </tr>
-
-          </thead>
-
-      <?php
-
-        if ($result->num_rows > 0) {
-
-          while ($row = $result->fetch_assoc()) {
-
-      ?>
-
-        <tr>
-
-          <td><?php echo $row['id']; ?></td>
-
-          <td><?php echo $row['employee_name']; ?></td>
-
-          <td><?php echo $row['employee_email']; ?></td>
-
-          <td><?php echo $row['employee_number']; ?></td>
-
-          <td><?php echo $row['employee_id']; ?></td>
-
-          <td><a class="edit_btn" href="employee_update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;<a href="#" class="del_btn"  onclick="SomeDeleteRowFunction(this)">Delete</a></td>
-
-        </tr>                       
-
-      <?php       }
-
-                }
-
-      ?>                
-
-    </tbody>
-
-  </table>
-
-
-  <script>
-    function SomeDeleteRowFunction(o) {
-     //no clue what to put here?
-     var p=o.parentNode.parentNode;
-         p.parentNode.removeChild(p);
-    }
-
-  </script>
-
-
+         
 
     
 </body>
