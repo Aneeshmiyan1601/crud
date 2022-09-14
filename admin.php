@@ -1,8 +1,12 @@
 <?php 
 
+session_start();
+
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+
 include "db.php";
 
-$sql = "SELECT * FROM employee";
+$sql = "SELECT * FROM employee_demo";
 
 $result = $conn->query($sql);
 
@@ -18,7 +22,7 @@ $result = $conn->query($sql);
     <title>Main Access</title>
 </head>
 <body>
-<center><h2>Employee Details</h2></center>
+<center><h2>All Employee Details</h2></center>
 <a href="mainexport.php" class="suc_btn">Export</a>
           <div class="table-wrapper">
           <table class="fl-table">
@@ -36,6 +40,8 @@ $result = $conn->query($sql);
               <th>Employee PhoneNumber</th>
 
               <th>Employee ID</th>
+
+              <th>Status</th>
 
               <th>Action</th>
 
@@ -63,9 +69,13 @@ $result = $conn->query($sql);
 
           <td><?php echo $row['employee_id']; ?></td>
 
+          <td><?php echo $row['status']; ?></td>
+
           <td>
-            <!-- <a class="edit_btn" href="employee_update.php?id=<?php echo $row['id']; ?>">Edit</a> -->
-            <!-- &nbsp; -->
+            <a class="edit_btn" href="employee_active.php?id=<?php echo $row['id']; ?>">Active</a>
+            &nbsp;
+            <a href="employee_delete1.php?id=<?php echo $row['id']; ?>" class="del_btn">Deactivate</a>
+            &nbsp;
             <a href="employee_delete.php?id=<?php echo $row['id']; ?>" class="del_btn">Delete</a></td>
 
         </tr>                       
@@ -82,3 +92,10 @@ $result = $conn->query($sql);
     
 </body>
 </html>
+
+<?php 
+}else{
+     header("Location: index.php");
+     exit();
+}
+ ?>

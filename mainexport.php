@@ -11,18 +11,18 @@
 	$output .="
 		<table>
 			<thead>
-			<h2 rowspan = 5>Employee Main List</h2>
 				<tr>
 					<th>SI.NO</th>
 					<th>Employee Name</th>
 					<th>Employee Email</th>
 					<th>Employee Number</th>
+					<th>Status</th>
 					<th>Employee ID</th>
 				</tr>
 			<tbody>
 	";
  
-	$query = $conn->query("SELECT * FROM `employee`");
+	$query = $conn->query("SELECT * FROM `employee_demo`");
 	while($fetch = $query->fetch_array()){
  
 	$output .= "
@@ -31,6 +31,7 @@
 					<td>".$fetch['employee_name']."</td>
 					<td>".$fetch['employee_email']."</td>
 					<td>".$fetch['employee_number']."</td>
+					<td>".$fetch['status']."</td>
 					<td>".$fetch['employee_id']."</td>
 				</tr>
 	";

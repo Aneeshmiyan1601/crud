@@ -1,5 +1,7 @@
 body {
     font-size: 19px;
+
+  font-family: "Montserrat", sans-serif;
 }
 table{
     width: 50%;
@@ -52,6 +54,27 @@ form {
     border-radius: 3px;
 }
 
+.edit_btns {
+    text-decoration: none;
+    /* height: auto; */
+    padding:  2px 5px;
+    background: #2E8B57;
+    color: white;
+    border-radius: 3px;
+    font-size: medium;
+}
+
+.log {
+    text-decoration: none;
+    /* height: auto; */
+    padding:  2px 5px;
+    background: yellowgreen;
+    color: white;
+    border-radius: 3px;
+    font-size: medium;
+    
+}
+
 .del_btn {
     text-decoration: none;
     padding: 2px 5px;
@@ -60,12 +83,20 @@ form {
     background: #800000;
 }
 
+.suc_btn {
+    text-decoration: none;
+    padding: 2px 5px;
+    color: white;
+    border-radius: 3px;
+    background: #048000;
+}
+
 
 /* view details */
 
 
 .table-wrapper{
-    margin: 10px 70px 70px;
+    margin: 0px 70px 0px;
     box-shadow: 0px 35px 50px rgba( 0, 0, 0, 0.2 );
 }
 
@@ -171,3 +202,95 @@ form {
         text-align: center;
     }
 }
+
+
+/* serach bar css */
+.search form{
+    
+        
+        margin: -20px;
+        bottom: 50%;
+        text-align: center;
+        padding: 0px; 
+        border: 0px; 
+        border-radius: 0px;
+    
+}
+
+
+
+/* navbar session */
+
+
+.navMenu {
+    position: absolute;
+    top: 5%;
+    left: 80%;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+  
+  .navMenu a {
+    color: black;
+    text-decoration: none;
+    font-size: 1.2em;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    width: 80px;
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .navMenu a:hover {
+    color: #fddb3a;
+  }
+  
+  .navMenu .dot {
+    width: 6px;
+    height: 6px;
+    background: #fddb3a;
+    border-radius: 50%;
+    opacity: 0;
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .navMenu a:nth-child(1):hover ~ .dot {
+    -webkit-transform: translateX(30px);
+    transform: translateX(30px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu a:nth-child(2):hover ~ .dot {
+    -webkit-transform: translateX(110px);
+    transform: translateX(110px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu a:nth-child(3):hover ~ .dot {
+    -webkit-transform: translateX(200px);
+    transform: translateX(200px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+  
+  .navMenu a:nth-child(4):hover ~ .dot {
+    -webkit-transform: translateX(285px);
+    transform: translateX(285px);
+    -webkit-transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    opacity: 1;
+  }
+
+
+  /* graph navbar */
+
+  

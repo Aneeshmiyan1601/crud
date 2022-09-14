@@ -1,5 +1,9 @@
 <?php
 
+session_start();
+
+if (isset($_SESSION['id']) && isset($_SESSION['user_name'])) {
+
 include "db.php";
 
 if (isset($_POST['update'])) {
@@ -11,27 +15,27 @@ if (isset($_POST['update'])) {
 
 //     $select = mysqli_query($conn, "SELECT * FROM employee WHERE employee_name = '".$_POST['employee_name']."'");
 // if(mysqli_num_rows($select)) {
-//   // header('Location: index.php');
+//   // header('Location: dashboard.php');
 //   exit('This username already exists');
 // }else{
 
 
-    $sql = "UPDATE `employee` SET `employee_name`='$employee_name',`employee_email`='$employee_email',`employee_number`='$employee_number',`employee_id`='$employee_id' WHERE `id`= '$user_id'";
+    // $sql = "UPDATE `employee` SET `employee_name`='$employee_name',`employee_email`='$employee_email',`employee_number`='$employee_number',`employee_id`='$employee_id' WHERE `id`= '$user_id'";
     $sql1 = "UPDATE `employee_demo` SET `employee_name`='$employee_name',`employee_email`='$employee_email',`employee_number`='$employee_number',`employee_id`='$employee_id' WHERE `id`= '$user_id'";
-    $result = $conn->query($sql);
+    // $result = $conn->query($sql);
     $result1 = $conn->query($sql1); 
 
-        if ($result == TRUE) {
+        if ($result1 == TRUE) {
 
             // echo "Record updated successfully.";
-            // header('Location: index.php');
+            // header('Location: dashboard.php');
 
-        }if($result1 == $result){
+        // }if($result1 == $result){
           // echo "Record updated successfully.";
-          // header('Location: index.php');
+          // header('Location: dashboard.php');
 
           echo '<script>alert("Record Update Successfully")</script>';
-          echo '<script>window.location.href = "index.php"; </script>';
+          echo '<script>window.location.href = "dashboard.php"; </script>';
         
         }else{
 
@@ -123,4 +127,12 @@ if (isset($_POST['update'])) {
     
 </body>
 </html>
+
+
+<?php 
+}else{
+     header("Location: index.php");
+     exit();
+}
+ ?>
 

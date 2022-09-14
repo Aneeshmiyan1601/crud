@@ -23,6 +23,7 @@
  
 	$query = $conn->query("SELECT * FROM `employee_demo`");
 	while($fetch = $query->fetch_array()){
+		if($fetch['status'] == 'active'){
  
 	$output .= "
 				<tr>
@@ -34,7 +35,8 @@
 				</tr>
 	";
 	}
- 
+
+	}
 	$output .="
 			</tbody>
  
